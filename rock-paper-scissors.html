@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Summary
+    // Create a rock-paper-scissor game where the computer randomly choose a move
+    // and the player chooses one. The prompt for the player can accept any case
+    // The game checks to see which move is the winning one
+    // and prints a message of the outcome
+    // The game can also play more than one round
+
+    // Plan
+    // Interface is prompt
+    // Input is the move from the player and it can accept in case
+    // Internal input in form of computers random move
+    // The output is the outcome of a round
+
+    // Psuedocode
+    // Computer randomly chooses rock, paper or scissors
+    //    return choice
+    // Play a single round using 2 parameters to determine round outcome
+    //    return the outcome
+    //    (function is case-insensitve)
+    // Call playRound to play multiple rounds
+    //    loop 5 times for 5 rounds
+    //    keeps score
+    //    reports outcome of round
+    // Use prompt to get players move
+
+    let player_move = prompt("Please choose rock, paper, or scissors").toLowerCase();
+
+    // function computerPlay() {
+    //   return Math.floor(Math.random() * (3 - 1 + 1) + 1);
+    // }
+
+    // function playRound(playerSelection, computerSelection) {
+      
+    // }
+    console.log(player_move);
+  </script>
+</body>
+</html>
