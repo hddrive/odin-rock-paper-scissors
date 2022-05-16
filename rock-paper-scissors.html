@@ -25,24 +25,80 @@
     // Computer randomly chooses rock, paper or scissors
     //    return choice
     // Play a single round using 2 parameters to determine round outcome
+    //    compare player and computer moves
     //    return the outcome
     //    (function is case-insensitve)
     // Call playRound to play multiple rounds
     //    loop 5 times for 5 rounds
-    //    keeps score
+    //    keeps wins
     //    reports outcome of round
     // Use prompt to get players move
 
-    let player_move = prompt("Please choose rock, paper, or scissors").toLowerCase();
 
-    // function computerPlay() {
-    //   return Math.floor(Math.random() * (3 - 1 + 1) + 1);
-    // }
+    // Computer move. Returns 1-3, 1 = rock, 2 = paper, 3 = scissors
+    function computerPlay() {
+      let randomNumber = Math.floor(Math.random() * (3 - 1 + 1) + 1);
+      let choice = (randomNumber === 1) ? "Rock" :
+        (randomNumber === 2) ? "Paper" :
+        "Scissors";
+      return choice;
+    }
 
-    // function playRound(playerSelection, computerSelection) {
+    // Plays a single round of the game
+    function playRound(playerSelection, computerSelection) {
+      // rock/scissors; paper/rock; scissors/paper
+      if (playerSelection === "Rock" && computerSelection === "Scissors"  
+        || playerSelection === "Paper" && computerSelection === "Rock" 
+        || playerSelection === "Scissors" && computerSelection === "Paper") {
+        return `You Win! ${playerSelection} beats ${computerSelection}}`;
+      }
+      else if (computerSelection === "Rock" && playerSelection === "Scissors"  
+        || computerSelection === "Paper" && playerSelection === "Rock" 
+        || computerSelection === "Scissors" && playerSelection === "Paper") {
+        return `You Lose! ${computerSelection} beats ${playerSelection}`;
+      }
+      else {
+        return "Draw!";
+      }
+   }
+
+    function game() {
+      let wins = 0;
+      let losses = 0;
+      let draws = 0;
+      for (let i = 0; i < 5; i++) {
+        // variable is case insensitive
+        let player = prompt("Please choose rock, paper, or scissors");
+        const playerSelection = player[0].toUpperCase() + player.slice(1).toLowerCase();
+        const computerSelection = computerPlay();
+        let result = playRound(playerSelection, computerSelection);
+
+        if (result.slice(0, 7) === "You Win") {
+          wins++;
+        }
+        else if (result === "Draw!") {
+          draws++;
+        }
+        else {
+          losses++;
+        }
+        console
+      }
       
-    // }
-    console.log(player_move);
+      if (wins > losses) {
+        return `You scored ${wins} points and there were ${draws} draws. You Won the Match!`;
+      }
+      else if (wins < losses) {
+        return `You scored ${wins} points and there were ${draws} draws. You Lost the Match!`;
+      }
+      else {
+        return `You scored ${wins} points and there were ${draws} draws. It is a Draw!`;
+      }
+   }
+
+   console.log(game());
+    // console.log(computerSelection);
+    // console.log(playRound(playerSelection, computerSelection));
   </script>
 </body>
 </html>
